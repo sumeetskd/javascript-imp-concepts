@@ -4,7 +4,7 @@
 
 Reference: https://dev.to/abdulazizcode/scope-lexical-environment-4pdd
 
-**Chat GPT :**
+**Lexical Environment :**
 
 In JavaScript, a lexical environment is an internal data structure used by the JavaScript engine to track and manage variables and their scopes during the execution of code. It consists of two main components: **an environment record** and a **reference to the outer environment**.
 
@@ -18,3 +18,39 @@ Lexical environments are crucial for understanding variable scoping and closures
 
 JavaScript engines use lexical environments to ensure proper variable scoping and efficient variable lookup during code execution. They are an essential part of JavaScript's runtime environment.
 
+Sure! Let's consider an example to illustrate how lexical environments work in JavaScript:
+
+```javascript
+function outer() {
+  var outerVariable = 'I am from the outer function';
+
+  function inner() {
+    var innerVariable = 'I am from the inner function';
+    console.log(outerVariable); // Accessing outerVariable from the outer lexical environment
+    console.log(innerVariable); // Accessing innerVariable from the inner lexical environment
+  }
+
+  inner(); // invoking the inner function
+}
+
+outer(); // invoking the outer function
+```
+
+In this example, we have an outer function called `outer` that defines a variable `outerVariable` and an inner function called `inner` that defines a variable `innerVariable`. 
+
+When the `outer` function is invoked, a new lexical environment is created for that invocation. It includes the `outerVariable` variable and a reference to the outer environment, which in this case is the global environment (or any other outer scope if `outer` was nested within another function).
+
+Inside the `outer` function, we define the `inner` function. When `inner` is invoked within the `outer` function, a new lexical environment is created for that invocation as well. It includes the `innerVariable` variable and a reference to the outer environment, which is the lexical environment of the `outer` function.
+
+Within the `inner` function, we can access both the `outerVariable` from the outer lexical environment and the `innerVariable` from the inner lexical environment. This is possible because each function maintains a reference to its outer lexical environment, allowing for nested scope resolution.
+
+By utilizing lexical environments and the concept of closures, the `inner` function can access and use variables from its outer scope, even after the `outer` function has finished executing.
+
+So, when we run the code, it will print:
+
+```
+I am from the outer function
+I am from the inner function
+```
+
+This demonstrates how lexical environments enable variable scoping and the ability to access variables from different levels of nested functions.
