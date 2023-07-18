@@ -2,8 +2,6 @@
 
 ### Scope & Lexical Environment 
 
-Reference: https://dev.to/abdulazizcode/scope-lexical-environment-4pdd
-
 **Lexical Environment :**
 
 In JavaScript, a lexical environment is an internal data structure used by the JavaScript engine to track and manage variables and their scopes during the execution of code. It consists of two main components: **an environment record** and a **reference to the outer environment**.
@@ -54,3 +52,8 @@ I am from the inner function
 ```
 
 This demonstrates how lexical environments enable variable scoping and the ability to access variables from different levels of nested functions.
+
+
+Reference: 
+https://dev.to/abdulazizcode/scope-lexical-environment-4pdd
+https://javascript.plainenglish.io/scope-chain-and-lexical-environment-in-javascript-eb1f6e60997e
